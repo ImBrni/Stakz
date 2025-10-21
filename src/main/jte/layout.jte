@@ -1,4 +1,4 @@
-@param gg.jte.Content content
+@param casino.AppUser currentUser
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,12 +13,6 @@
 </head>
 <body class="bg-slate-600 text-white">
 
-<!--
-<header>
-
-</header>
--->
-
 <header class="bg-gray-900 text-white py-4 px-6 flex items-center justify-between">
     <a href="/">
     <div class="flex items-center space-x-4">
@@ -27,16 +21,24 @@
     </div>
     </a>
 
-    <a href="/login">
-        <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition duration-300">
-            Login
-        </button>
-    </a>
+    @if(currentUser == null)
+        <a href="/login">
+            <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition duration-300">
+                Login
+            </button>
+        </a>
+    @else
+        <a href="/logout">
+            <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition duration-300">
+                Log out
+            </button>
+        </a>
+    @endif
 </header>
 
-<main>
-${content}
-</main>
+<main> <!--- CONTENT HERE ---------------------------------->
+
+</main> <!-- CONTENT HERE ---------------------------------->
 
 <!--
 <footer>

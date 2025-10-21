@@ -1,5 +1,26 @@
-@template.layout.default(
-content = @`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Stakz</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="Assets/style.css" />
+    <link rel="icon" href="Assets/stakz.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-600 text-white">
+
+<header class="bg-gray-900 text-white py-4 px-6 flex items-center justify-between">
+    <a href="/">
+        <div class="flex items-center space-x-4">
+            <img src="/Assets/stakz.svg" alt="Stakz Logo" class="h-10 w-10">
+            <h1 class="text-2xl font-bold">Stakz</h1>
+        </div>
+    </a>
+</header>
+
+<main> <!--- CONTENT HERE ---------------------------------->
     <div class="min-h-screen flex items-center justify-center">
         <div class="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
             <div>
@@ -32,4 +53,13 @@ content = @`
             </form>
         </div>
     </div>
-`)
+</main> <!-- CONTENT HERE ---------------------------------->
+
+<!--
+<footer>
+
+</footer>
+-->
+
+</body>
+</html>
