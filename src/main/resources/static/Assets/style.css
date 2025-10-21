@@ -1,0 +1,65 @@
+@font-face {
+	font-family: "OpenRunde";
+	src: url("fonts/OpenRunde-Regular.woff2") format("woff2");
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: "OpenRunde";
+	src: url("fonts/OpenRunde-Medium.woff2") format("woff2");
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: "OpenRunde";
+	src: url("fonts/OpenRunde-Semibold.woff2") format("woff2");
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: "OpenRunde";
+	src: url("fonts/OpenRunde-Bold.woff2") format("woff2");
+	font-weight: 700;
+}
+
+:root {
+    /* #3 */
+    --ghost-white: #f7f7ffff;
+    --forest-green: #008c13ff;
+    --dark-purple: #30011eff;
+    --tea-green: #d7fcd4ff;
+    --dark-goldenrod: #b68f40ff;
+    --davys-gray: #545454ff;
+}
+
+* {
+	font-family: OpenRunde, -apple-system, system-ui, Arial, sans-serif;
+}
+
+/*
+body {
+	margin: 5em auto;
+	width: 70em;
+	min-width: 40em;
+	color: white;
+	background: var(--dark-purple);
+}
+
+button {
+    color: var(--ghost-white);
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 5px;
+    background: var(--dark-goldenrod);
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+}
+
+button:hover {
+    transform: scale(1.05) perspective(1px);
+}
+
+*/
