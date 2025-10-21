@@ -10,7 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class DataInitializer {
 
     @Bean
-    CommandLineRunner initUsers(UserRepository users, PasswordEncoder encoder) {
+    CommandLineRunner initUsers(AppUserRepository users, PasswordEncoder encoder) {
         return args -> {
             users.findByUsername("user").orElseGet(() -> {
                 AppUser u = new AppUser();
