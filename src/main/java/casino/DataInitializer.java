@@ -19,6 +19,14 @@ public class DataInitializer {
                 u.setBalance(10_000L);
                 return users.save(u);
             });
+
+            users.findByUsername("admin").orElseGet(() -> {
+                AppUser a = new AppUser();
+                a.setUsername("admin");
+                a.setPassword(encoder.encode("admin"));
+                a.setBalance(1_000_000L);
+                return users.save(a);
+            });
         };
     }
 }
