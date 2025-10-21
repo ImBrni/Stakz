@@ -14,9 +14,16 @@
             -->
         @else
             <p class="text-xl font-medium">Welcome ${username}</p>
+            <!--
             <a href="/logout">
                 <button type="submit" class="group relative w-10em flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Log Out
+                </button>
+            </a>
+            -->
+            <a href="/logout">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition duration-300">
+                    Log  out
                 </button>
             </a>
         @endif
