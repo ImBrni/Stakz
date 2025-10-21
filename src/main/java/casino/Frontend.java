@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 public class Frontend extends BaseController{
 
     @GetMapping("/")
-    public String root(Model model) {
-        return "root";
+    public String home(Model model) {
+        return "home";
     }
 
     @GetMapping("/login")
