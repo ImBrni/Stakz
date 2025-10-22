@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -24,6 +25,8 @@ public class AppUser implements UserDetails {
     public void setId(Long id) { this.id = id; }
 
     public Long getBalance() { return balance; }
+    //public String getBalanceFmt() { return new DecimalFormat("#,###.00").format(balance); }
+    public String getBalanceFmt() { return new DecimalFormat("#,###").format(balance); }
     public void setBalance(Long newBalance) { this.balance = newBalance; }
 
     @Override

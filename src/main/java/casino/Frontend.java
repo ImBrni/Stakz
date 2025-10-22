@@ -14,8 +14,8 @@ public class Frontend extends BaseController {
         return "home";
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
+    @GetMapping("/signin")
+    public String signin() {
+        return "signin";
     }
 }

@@ -32,7 +32,7 @@
             </div>
 
             <!-- Login Form -->
-            <form class="mt-8 space-y-6" action="/login" method="POST">
+            <form class="mt-8 space-y-6" action="/signin" method="POST">
                 <div class="rounded-md shadow-sm -space-y-px">
                     <div>
                         <input name="username" type="text" required

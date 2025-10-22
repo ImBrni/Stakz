@@ -23,15 +23,16 @@ public class SecurityConfig {
         return http
                 .csrf().disable()
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers( "/", "/login", "/Assets/**").permitAll()
+                        .requestMatchers( "/", "/signin", "/Assets/**").permitAll()
                         .anyRequest().authenticated()
                         )
                 .formLogin(form -> form
-                        .loginPage("/login")
+                        .loginPage("/signin")
                         .defaultSuccessUrl("/", true)
                         .permitAll()
                 )
                 .logout(logout -> logout
+                        .logoutUrl("/signout")
                         .logoutSuccessUrl("/")
                         .permitAll()
                 )
