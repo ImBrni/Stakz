@@ -1,4 +1,4 @@
-package casino;
+package casino.model;
 
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;

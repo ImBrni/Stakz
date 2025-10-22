@@ -1,8 +1,8 @@
 package casino.config;
 
 
-import casino.AppUser;
-import casino.AppUserRepository;
+import casino.model.AppUser;
+import casino.repository.AppUserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-@param casino.AppUser currentUser
+@param casino.model.AppUser currentUser
 
 <!DOCTYPE html>
 <html lang="en">

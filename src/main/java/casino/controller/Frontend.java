@@ -1,6 +1,6 @@
 package casino.controller;
 
-import casino.AppUser;
+import casino.model.AppUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

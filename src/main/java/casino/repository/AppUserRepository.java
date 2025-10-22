@@ -1,5 +1,6 @@
-package casino;
+package casino.repository;
 
+import casino.model.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
