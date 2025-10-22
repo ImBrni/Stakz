@@ -1,9 +1,14 @@
-package casino.Games;
+package casino.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class BlackJack {
+public class Backend {
+
+    @GetMapping("/secret")
+    public String hello() {
+        return "SECRET!";
+    }
 
 }
