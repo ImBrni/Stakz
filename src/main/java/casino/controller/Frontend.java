@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.*;
+
+import static java.util.Map.entry;
+
 abstract class BaseController {
     @ModelAttribute("currentUser")
     public AppUser addCurrentUser(Authentication authentication) {
@@ -23,6 +27,27 @@ public class Frontend extends BaseController {
 
     @GetMapping("/")
     public String root(Model model) {
+
+        var games = Arrays.asList(
+                Map.ofEntries(
+                        entry("name", "Blackjack"),
+                        entry("uri", "/games/blackjack"),
+                        entry("banneruri", "/Assets/gamebanners/blackjack.jpg"
+                        )
+                ),
+                Map.ofEntries(
+                        entry("name", "Roulette"),
+                        entry("uri", "/games/roulette"),
+                        entry("banneruri", "/Assets/gamebanners/roulette.jpg")
+                ),
+                Map.ofEntries(
+                        entry("name", "Lucky Wheel"),
+                        entry("uri", "/games/wheel"),
+                        entry("banneruri", "/Assets/gamebanners/wheel.jpg")
+                )
+        );
+
+        model.addAttribute("games", games);
         return "home";
     }
 
