@@ -32,18 +32,18 @@ public class Frontend extends BaseController {
                 Map.ofEntries(
                         entry("name", "Blackjack"),
                         entry("uri", "/games/blackjack"),
-                        entry("banneruri", "/Assets/gamebanners/blackjack.jpg"
+                        entry("banneruri", "/assets/gamebanners/blackjack.jpg"
                         )
                 ),
                 Map.ofEntries(
                         entry("name", "Roulette"),
                         entry("uri", "/games/roulette"),
-                        entry("banneruri", "/Assets/gamebanners/roulette.jpg")
+                        entry("banneruri", "/assets/gamebanners/roulette.jpg")
                 ),
                 Map.ofEntries(
                         entry("name", "Lucky Wheel"),
                         entry("uri", "/games/wheel"),
-                        entry("banneruri", "/Assets/gamebanners/wheel.jpg")
+                        entry("banneruri", "/assets/gamebanners/wheel.jpg")
                 )
         );
 

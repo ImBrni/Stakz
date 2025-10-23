@@ -4,12 +4,13 @@
 <header class="fixed top-0 w-full bg-gray-900 text-white py-4 px-6 flex items-center justify-between">
     <a href="/" class="hidden sm:block">
         <div class="flex items-center space-x-4">
-            <img src="/Assets/stakz.svg" alt="Stakz Logo" class="h-10 w-10">
+            <img src="assets/stakz.svg" alt="Stakz Logo" class="h-10 w-10">
             <h1 class="text-2xl font-bold">Stakz</h1>
         </div>
     </a>
 
-    @if(currentUser == null && enabled)
+    @if(enabled)
+    @if(currentUser == null)
         <a href="/signin" class="mr-8">
             <button class="group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                 Sign in
@@ -49,5 +50,6 @@
                 <a href="signout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
             </div>
         </div>
+    @endif
     @endif
 </header>

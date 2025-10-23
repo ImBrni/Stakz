@@ -19,7 +19,7 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable) // TODO: Switch to JWT
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers( "/", "/signin", "/Assets/**").permitAll()
+                        .requestMatchers( "/", "/signin", "/assets/**").permitAll()
                         .anyRequest().authenticated()
                         )
                 .formLogin(form -> form
