@@ -5,7 +5,7 @@
 @template.modules.head()
 <body class="bg-slate-600 text-white h-screen flex items-center justify-center">
 
-@template.modules.header(currentUser = currentUser, enabled = false);
+@template.modules.header(currentUser = currentUser, enabled = false)
 
 <main class="flex flex-wrap gap-4 min-w-[300px] w-1/4 mx-auto">
     <div class="min-h-screen w-full flex items-center justify-center">

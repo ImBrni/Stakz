@@ -16,7 +16,22 @@
     @endfor
 </main>
 
-@template.modules.footer()
+<!--
+<ul class="fixed bottom-10 flex gap-4 justify-center content-center">
+    <div class="bg-black rounded-md p-4">10,000,000$</div>
+    <li class="relative group" tabindex="-1">
+        <button class="bg-black rounded-md p-4">Menu</button>
+        <div class="absolute z-50 bg-black p-4 rounded-md invisible w-48 opacity-0 -top-[100px] right-1/3 transform transition-all group-focus-within:visible group-focus-within:opacity-100">
+            <div class="flex flex-col gap-2">
+                <p>1</p>
+                <p>2</p>
+            </div>
+        </div>
+    </li>
+</ul>
+-->
+
+@template.modules.footer(currentUser = currentUser, enabled = true)
 
 </body>
 </html>

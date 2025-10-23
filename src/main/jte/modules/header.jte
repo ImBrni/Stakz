@@ -2,7 +2,7 @@
 @param boolean enabled = true
 
 <header class="fixed top-0 w-full bg-gray-900 text-white py-4 px-6 flex items-center justify-between">
-    <a href="/" class="hidden sm:block">
+    <a href="/">
         <div class="flex items-center space-x-4">
             <img src="assets/stakz.svg" alt="Stakz Logo" class="h-10 w-10">
             <h1 class="text-2xl font-bold">Stakz</h1>
@@ -17,8 +17,8 @@
             </button>
         </a>
     @else
-        <div class="px-4 py-2 font-bold border rounded-md flex justify-center content-center ">
-            ${currentUser.getBalanceFmt()}
+        <div class="hidden sm:block px-4 py-2 font-bold border rounded-md flex justify-center content-center ">
+            ${currentUser.getBalanceFmt()} $
         </div>
 
         <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="capitalize text-white mr-8 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
