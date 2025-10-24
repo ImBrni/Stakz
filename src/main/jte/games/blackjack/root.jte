@@ -11,9 +11,9 @@
     </div>
 
     <div class="controls flex gap-6 justify-center max-w-[1000px] items-center h-1/6 w-1/2">
-        @template.modules.button(label = "Double")
-        @template.modules.button(label = "Hit")
-        @template.modules.button(label = "Fold")
+        <div class="max-w-[300px]">
+            @template.modules.button(label = "Start Game", uri = "blackjack/begin")
+        </div>
     </div>
 </main>
 

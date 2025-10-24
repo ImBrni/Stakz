@@ -22,6 +22,9 @@ public class BlackjackController extends BaseController {
 
     @GetMapping("games/blackjack/begin")
     public String begin(Model m) {
+
+
+
         return "games/blackjack/begin";
     }
 
