@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @template.modules.head()
-<body class="bg-slate-600 text-white h-screen flex items-center justify-center">
+<body>
 
 @template.modules.header(currentUser = currentUser, enabled = false)
 

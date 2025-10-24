@@ -1,9 +1,9 @@
 @param casino.model.AppUser currentUser
 @param java.util.List<java.util.Map<String, String>> games
 
-<html>
+<html lang="en">
 @template.modules.head()
-<body class="bg-slate-600 text-white h-screen flex items-center justify-center">
+<body>
 @template.modules.header(currentUser = currentUser)
 
 <main class="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
