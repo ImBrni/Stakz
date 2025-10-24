@@ -4,29 +4,6 @@ import casino.games.Card;
 import casino.repository.GamesRepository;
 import org.springframework.stereotype.Service;
 
-/*
-@Service
-public class BlackjackService {
-
-    public Blackjack startNewGame() {
-        return new Blackjack();
-    }
-
-    public Card playerDrawCard(Blackjack game) {
-        var card = game.getCard();
-        game.playerAddCard(card);
-        return card;
-    }
-
-    public Card dealerDrawCard(Blackjack game) {
-        game.dealerAddCard(game.getCard());
-    }
-
-    // Add more game logic as needed
-}
-*/
-
-
 @Service
 public class BlackjackService {
 

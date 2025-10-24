@@ -1,6 +1,5 @@
 package casino.config;
 
-
 import casino.model.AppUser;
 import casino.repository.AppUserRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -13,7 +12,7 @@ public class DataInitializer {
 
     @Bean
     CommandLineRunner initUsers(AppUserRepository users, PasswordEncoder encoder) {
-        return args -> {
+        return _ -> {
             users.findByUsername("user").orElseGet(() -> {
                 AppUser u = new AppUser();
                 u.setUsername("user");

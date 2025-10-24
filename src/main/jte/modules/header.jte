@@ -1,9 +1,6 @@
 @param casino.model.AppUser currentUser
 @param boolean enabled = true
 
-<!--
-<header>
--->
 <div class="header">
     <a href="/">
         <div class="flex items-center space-x-4">
@@ -14,13 +11,6 @@
 
     @if(enabled)
         @if(currentUser == null)
-            <%--
-            <a href="/signin" class="mr-8">
-                <button class="group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Sign in
-                </button>
-            </a>
-            --%>
             <div class="mr-8">
                 @template.modules.button(label = "Sign in", uri = "/signin", colored = true)
             </div>
@@ -72,6 +62,3 @@
         @endif
     @endif
 </div>
-<!--
-</header>
--->
