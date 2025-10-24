@@ -6,6 +6,7 @@
     <meta name="description" content="" />
     <link rel="stylesheet" type="text/css" href="/assets/style.css" />
     <link rel="icon" href="/assets/stakz.svg">
+    <script src="/assets/fixi.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     <script defer src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>

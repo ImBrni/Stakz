@@ -1,5 +1,5 @@
 @param casino.model.AppUser currentUser
-@param boolean enabled
+@param boolean enabled = true
 
 @if(enabled)
 @if(currentUser != null)

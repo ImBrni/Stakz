@@ -16,7 +16,7 @@
     @endfor
 </main>
 
-@template.modules.footer(currentUser = currentUser, enabled = true)
+@template.modules.footer(currentUser = currentUser)
 
 </body>
 </html>

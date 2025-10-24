@@ -31,18 +31,12 @@
                 </div>
 
                 <div>
-                    @template.modules.button(label = "Sign in", uri = "/signin", colored = true, type = "submit")
+                    @template.modules.button(label = "Sign in", uri = "/signin", type = "submit")
                 </div>
             </form>
         </div>
     </div>
 </main>
-
-<!--
-<footer>
-
-</footer>
--->
 
 </body>
 </html>

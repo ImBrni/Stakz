@@ -34,9 +34,11 @@ public class Blackjack extends Games {
     private List<Card> playerHand = new ArrayList<>();
     @ElementCollection
     private List<Card> dealerHand = new ArrayList<>();
+    private Long bet;
 
-    public Blackjack() {
+    public Blackjack(Long bet) {
         super();
+        this.bet = bet;
         Collections.shuffle(deck);
 
         playerHand.add(deck.remove(0));
@@ -45,6 +47,8 @@ public class Blackjack extends Games {
         dealerHand.add(deck.remove(0));
         dealerHand.add(deck.remove(0));
     }
+
+    public Long getBet() { return this.bet; }
 
     public Card getCard() { return deck.remove(0); }
 

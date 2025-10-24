@@ -13,8 +13,8 @@ public class BlackjackService {
         this.gamesRepository = gamesRepository;
     }
 
-    public Blackjack startNewGame() {
-        Blackjack game = new Blackjack();
+    public Blackjack startNewGame(Long bet) {
+        Blackjack game = new Blackjack(bet);
         return (Blackjack) gamesRepository.save(game);
     }
 

@@ -12,7 +12,7 @@
     @if(enabled)
         @if(currentUser == null)
             <div class="mr-8">
-                @template.modules.button(label = "Sign in", uri = "/signin", colored = true)
+                @template.modules.button(label = "Sign in", uri = "/signin")
             </div>
         @else
             <div class="hidden sm:block px-4 py-2 font-bold border cursor-pointer rounded-md hover:bg-gray-700 flex justify-center content-center ">
