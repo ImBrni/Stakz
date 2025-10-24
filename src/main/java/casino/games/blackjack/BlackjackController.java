@@ -1,13 +1,13 @@
 package casino.games.blackjack;
 
+import casino.controller.BaseController;
+import casino.games.Card;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/games/blackjack")
-public class BlackjackController {
+@Controller
+public class BlackjackController extends BaseController {
 
     private final BlackjackService blackjackService;
 
@@ -15,23 +15,23 @@ public class BlackjackController {
         this.blackjackService = blackjackService;
     }
 
-    @GetMapping("/")
+    @GetMapping("games/blackjack")
     public String root(Model m) {
-        return "/games/blackjack/root";
+        return "games/blackjack/root";
     }
 
-    @GetMapping("/begin")
+    @GetMapping("games/blackjack/begin")
     public String begin(Model m) {
-        return "/games/blackjack/begin";
+        return "games/blackjack/begin";
     }
 
-    @GetMapping("/hit")
+    @GetMapping("games/blackjack/hit")
     public String hit(Model m) {
 
         Card pcard = null;
 
         m.addAttribute("playercard", pcard);
 
-        return "hit";
+        return "games/blackjack/hit";
     }
 }

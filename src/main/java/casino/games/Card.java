@@ -1,11 +1,15 @@
-package casino.games.blackjack;
+package casino.games;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class Card {
+    @Column(name = "card_rank")
     String rank;
+    @Column(name = "card_suit")
     String suit;
+    @Column(name = "card_name")
     int value;
 
     public Card() {}

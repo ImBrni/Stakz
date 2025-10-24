@@ -1,5 +1,6 @@
 package casino.games.blackjack;
 
+import casino.games.Card;
 import casino.repository.GamesRepository;
 import org.springframework.stereotype.Service;
 

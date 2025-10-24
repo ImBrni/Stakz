@@ -6,14 +6,8 @@
 @template.modules.header(currentUser = currentUser)
 
 <main class="flex flex-col gap-4 justify-center items-center h-screen w-screen margin-6">
-    <div class="table bg-green-900 w-2/3 max-w-[1000px] h-1/2 rounded-xl">
+    <div class="table bg-green-900 w-2/3 max-w-[1000px] h-1/2 rounded-[100%]">
         Table
-    </div>
-
-    <div class="controls flex gap-6 justify-center max-w-[1000px] items-center h-1/6 w-1/2">
-        @template.modules.button(label = "Double")
-        @template.modules.button(label = "Hit")
-        @template.modules.button(label = "Fold")
     </div>
 </main>
 
