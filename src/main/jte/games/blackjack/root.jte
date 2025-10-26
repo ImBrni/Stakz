@@ -5,15 +5,15 @@
 <body>
 @template.modules.header(currentUser = currentUser)
 
+<script src="/assets/fixi.js"></script>
+
 <main class="flex flex-col gap-4 justify-center items-center h-screen w-screen margin-6">
-    <div class="table p-4 bg-green-900 text-green-900 w-2/3 max-w-[1000px] h-1/2 rounded-xl">
+    <div id="table" class="p-4 mb-10 bg-green-900 text-green-900 w-2/3 h-1/2 sm:w-1/3 sm:h-1/3 rounded-xl">
         Table
     </div>
 
-    <div class="controls flex gap-6 justify-center max-w-[1000px] items-center h-1/6 w-1/2">
-        <div class="max-w-[300px]">
-            @template.modules.nbutton(label = "Start Game")
-        </div>
+    <div class="controls contents">
+        @template.games.blackjack.controls(start = true, bet = true)
     </div>
 </main>
 

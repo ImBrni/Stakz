@@ -9,7 +9,7 @@ public class Card {
     String rank;
     @Column(name = "card_suit")
     String suit;
-    @Column(name = "card_name")
+    @Column(name = "card_value")
     int value;
 
     public Card() {}

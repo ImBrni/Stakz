@@ -14,7 +14,7 @@ public class Frontend extends BaseController {
     @GetMapping("/")
     public String root(Model model) {
 
-        var games = Arrays.asList(
+        var games = List.of(
                 Map.ofEntries(
                         entry("name", "Blackjack"),
                         entry("uri", "/games/blackjack"),

@@ -48,18 +48,19 @@ public class Blackjack extends Games {
         dealerHand.add(deck.remove(0));
     }
 
-    public Long getBet() { return this.bet; }
-
     public Card getCard() { return deck.remove(0); }
 
     public void playerAddCard(Card c) { playerHand.add(c); }
     public void dealerAddCard(Card c) { dealerHand.add(c); }
+
+    public Long getBet() { return this.bet; }
+    public void setBet(Long bet) { this.bet = bet; }
 }
 
 /*
 public class Blackjack {
 
-        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Your hand: " + handToString(playerHand) + " (Total: " + getHandValue(playerHand) + ")");
         System.out.println("Dealer shows: " + dealerHand.get(0));
 
