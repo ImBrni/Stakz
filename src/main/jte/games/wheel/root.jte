@@ -6,9 +6,9 @@
 @template.modules.header(currentUser = currentUser)
 
 <main class="flex flex-col gap-4 justify-center items-center h-screen w-screen margin-6">
-    <div class="table bg-green-900 w-2/3 max-w-[1000px] h-1/2 rounded-[100%]">
-        Table
-    </div>
+    <svg height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+        <circle r="45" cx="50" cy="50" fill="red" />
+    </svg>
 </main>
 
 @template.modules.footer(currentUser = currentUser, enabled = true)

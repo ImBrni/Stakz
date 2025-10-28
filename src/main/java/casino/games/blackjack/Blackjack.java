@@ -1,6 +1,7 @@
 package casino.games.blackjack;
 
 import casino.games.Card;
+import casino.model.AppUser;
 import casino.model.Games;
 import jakarta.persistence.*;
 
@@ -34,7 +35,10 @@ public class Blackjack extends Games {
     private List<Card> playerHand = new ArrayList<>();
     @ElementCollection
     private List<Card> dealerHand = new ArrayList<>();
+
     private Long bet;
+
+    private boolean canDouble;
 
     public Blackjack(Long bet) {
         super();
@@ -55,6 +59,9 @@ public class Blackjack extends Games {
 
     public Long getBet() { return this.bet; }
     public void setBet(Long bet) { this.bet = bet; }
+
+    public boolean isCanDouble() { return canDouble; }
+    public void setCanDouble(boolean canDouble) { this.canDouble = canDouble; }
 }
 
 /*
