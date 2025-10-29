@@ -19,16 +19,16 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable) // TODO: Switch to JWT
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers( "/", "/signin", "/assets/**").permitAll()
+                        .requestMatchers( "/", "/sign_in", "/assets/**").permitAll()
                         .anyRequest().authenticated()
                         )
                 .formLogin(form -> form
-                        .loginPage("/signin")
+                        .loginPage("/sign_in")
                         .defaultSuccessUrl("/", true)
                         .permitAll()
                 )
                 .logout(logout -> logout
-                        .logoutUrl("/signout")
+                        .logoutUrl("/sign_out")
                         .logoutSuccessUrl("/")
                         .permitAll()
                 )
