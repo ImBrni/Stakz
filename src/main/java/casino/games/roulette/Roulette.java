@@ -1,26 +1,19 @@
 package casino.games.roulette;
 
-import casino.controller.BaseController;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import casino.model.AppUser;
+import casino.model.Games;
+import jakarta.persistence.*;
 
 import java.util.Random;
-import java.util.Scanner;
 
-
-@Controller
-public class RouletteController extends BaseController {
-
-    @GetMapping("/games/roulette")
-    public String roulette(Model m) {
-        return "games/roulette/root";
-    }
-
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "game_type")
+public class Roulette extends Games {
+    Random generator = new Random();
+}
 }
 /*
-        Scanner keyboard = new Scanner(System.in);
-        Random generator = new Random();
         double total = 500;
         double amount;
         int choice, win = 0, lose = 0, spin = 0;

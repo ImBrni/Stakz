@@ -45,14 +45,14 @@ public class Blackjack extends Games {
         this.bet = bet;
         Collections.shuffle(deck);
 
-        playerHand.add(deck.remove(0));
-        playerHand.add(deck.remove(0));
+        playerHand.add(deck.removeFirst());
+        playerHand.add(deck.removeFirst());
 
-        dealerHand.add(deck.remove(0));
-        dealerHand.add(deck.remove(0));
+        dealerHand.add(deck.removeFirst());
+        dealerHand.add(deck.removeFirst());
     }
 
-    public Card getCard() { return deck.remove(0); }
+    public Card getCard() { return deck.removeFirst(); }
 
     public void playerAddCard(Card c) { playerHand.add(c); }
     public void dealerAddCard(Card c) { dealerHand.add(c); }
