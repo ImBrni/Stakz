@@ -12,7 +12,7 @@ import java.util.Random;
 public class Roulette extends Games {
     Random generator = new Random();
 }
-}
+
 /*
         double total = 500;
         double amount;
