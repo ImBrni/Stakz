@@ -1,6 +1,9 @@
 package casino.games.roulette;
 
 import casino.controller.BaseController;
+import casino.games.blackjack.BlackjackService;
+import casino.service.AppUserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +15,14 @@ import java.util.Scanner;
 @Controller
 public class RouletteController extends BaseController {
 
-    @GetMapping("/games/roulette")
-    public String roulette(Model m) {
-        return "games/roulette/root";
-    }
+    @Autowired
+    private AppUserDetailsService appUserDetailsService;
+    private final RouletteService rouletteService;
 
+    public RouletteController(RouletteService rouletteService) {this.rouletteService = rouletteService;}
+
+    @GetMapping("games/roulette")
+    public String roulette(Model m) {}
 }
 /*
         Scanner keyboard = new Scanner(System.in);

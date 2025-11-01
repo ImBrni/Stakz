@@ -11,27 +11,22 @@ import java.util.Random;
 @DiscriminatorColumn(name = "game_type")
 public class Roulette extends Games {
     Random generator = new Random();
-}
 
-/*
-        double total = 500;
+
         double amount;
-        int choice, win = 0, lose = 0, spin = 0;
         int number;
         int rouletteNum;
         int result;
         char response = 'y';
         int resultArr[] = new int[36];
-
-        while (response == 'y' || response == 'Y' && total <= 0)
-        {
-            System.out.print("Enter your bet amount: ");
-            amount = keyboard.nextDouble();
-            System.out.print("0 - Even\n1 - Odd\n2 - Number\n");
+            //TODO write roulette buttons
+            //System.out.print("Enter your bet amount: ");
+            //amount = keyboard.nextDouble();
+            //System.out.print("0 - Even\n1 - Odd\n2 - Number\n");
             choice = -1;
             while (choice < 0 || choice > 2)
             {
-                System.out.print("Place your bet on: ");
+                //System.out.print("Place your bet on: ");
                 choice = keyboard.nextInt();
             }
             number = 0;
@@ -44,7 +39,7 @@ public class Roulette extends Games {
                 }
             }
             rouletteNum = generator.nextInt(37);
-            spin++;
+            //spin++;
             System.out.println("Roulette number: " + rouletteNum);
 
             if (choice == 2)
@@ -83,33 +78,25 @@ public class Roulette extends Games {
                 lose ++;
                 resultArr[rouletteNum]++;
 
-                if (total <= 0) {
-                    break;
-                }
+                //if (total <= 0) {
+                //    break;
+                //}
 
             }
 
             //Ask for another game
-            for (int totals=1; totals<36; totals++) {
-                if( resultArr[totals] > 0 ) {
-                    System.out.println("The number " + totals + " won " + resultArr[totals] + " times.");
-                }
-            }
+            //for (int totals=1; totals<36; totals++) {
+            //    if( resultArr[totals] > 0 ) {
+            //        System.out.println("The number " + totals + " won " + resultArr[totals] + " times.");
+            //    }
+            //}
 
-
-
-
-
-            System.out.println("You have $" + total + " remaining." );
-            System.out.println("You have won " + win + " games.");
-            System.out.println("You have lost " + lose + " games.");
-            System.out.println("The wheel has been spun " + spin + " times.");
-            System.out.print("\nWould you like to play another game? (y/n) ");
-            response = keyboard.next().charAt(0);
-
+            //System.out.println("You have $" + total + " remaining." );
+            //System.out.println("You have won " + win + " games.");
+            //System.out.println("You have lost " + lose + " games.");
+            //System.out.println("The wheel has been spun " + spin + " times.");
+            //System.out.print("\nWould you like to play another game? (y/n) ");
+            //response = keyboard.next().charAt(0);
 
         }
-
-    }
 }
- */
