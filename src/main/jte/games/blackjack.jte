@@ -4,22 +4,23 @@
 @param java.util.List<casino.games.Card> pcards
 @param java.util.List<casino.games.Card> dcards
 
+@param casino.games.blackjack.BlackjackState state
+
 <%-- Controls --%>
 @param String endpoint = "blackjack/tick"
 @param boolean ddouble = false
 @param boolean hit = false
 @param boolean stand = false
 @param boolean bet = false
-@param long betAmount = 1L
 @param boolean start = false
 
 <html lang="en">
 @template.modules.head()
+<script src="/assets/fixi.js"></script>
 <script src="/assets/elements.cardmeister.full.js"></script>
 <body>
 @template.modules.header(currentUser = currentUser)
 
-<script src="/assets/fixi.js"></script>
 
 <main id="game" class="flex flex-col gap-4 justify-center items-center h-screen w-screen margin-6">
     <div id="table" class="p-4 mb-10 bg-green-900 w-1/2 sm:w-1/3 rounded-xl">
@@ -64,6 +65,8 @@
 
         </script>
 
+        <input name="gameId" value="${state.getGameId()}" class="hidden" />
+
         <div>
             <label for="bet" class="sr-only"> Quantity </label>
             <div class="flex items-center rounded-sm border border-gray-200 dark:border-gray-800">
@@ -79,7 +82,7 @@
                     </button>
                 @endif
 
-                <input type="number" id="bet" name="bet" disabled="${!bet}" min="1" value="${betAmount}"  class="h-10 w-16 border-transparent text-center [-moz-appearance:textfield] sm:text-sm dark:bg-gray-900 dark:text-white [&amp;::-webkit-inner-spin-button]:m-0 [&amp;::-webkit-inner-spin-button]:appearance-none [&amp;::-webkit-outer-spin-button]:m-0 [&amp;::-webkit-outer-spin-button]:appearance-none">
+                <input type="number" id="bet" name="bet" disabled="${!bet}" min="1" value="${state.getBet()}"  class="h-10 w-16 border-transparent text-center [-moz-appearance:textfield] sm:text-sm dark:bg-gray-900 dark:text-white [&amp;::-webkit-inner-spin-button]:m-0 [&amp;::-webkit-inner-spin-button]:appearance-none [&amp;::-webkit-outer-spin-button]:m-0 [&amp;::-webkit-outer-spin-button]:appearance-none">
 
                 @if(bet)
                     <button type="button" onclick="addBet(this)" value="+1" class="mx-4 leading-10 text-gray-600 transition hover:opacity-75 dark:text-gray-300">

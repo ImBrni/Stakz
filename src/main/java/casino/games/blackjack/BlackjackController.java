@@ -22,11 +22,10 @@ public class BlackjackController extends BaseController {
 
     @Autowired
     private AppUserDetailsService appUserDetailsService;
-    private final BlackjackService blackjackService;
+    @Autowired
+    private BlackjackService blackjackService;
 
-    public BlackjackController(BlackjackService blackjackService) {
-        this.blackjackService = blackjackService;
-    }
+    //public BlackjackController(BlackjackService blackjackService) { this.blackjackService = blackjackService; }
 
     @GetMapping("games/blackjack")
     public String root(Model m) {
@@ -38,36 +37,41 @@ public class BlackjackController extends BaseController {
         m.addAttribute("dcards", dcards);
         m.addAttribute("start", true);
         m.addAttribute("bet", true);
+        m.addAttribute("gameId", 0L);
+        m.addAttribute("state", new BlackjackState(1L, 1L, ""));
 
         return "games/blackjack";
     }
 
     @PostMapping("games/blackjack/tick")
     public String tick(@ModelAttribute BlackjackState state, Model m) {
-        var game = blackjackService.begin(1000L);
-        var id = game.getId();
-        var pid = game.getPlayerId();
-        var user = (AppUser) appUserDetailsService.loadUserById(pid);
 
-        List<Card> pcards = new ArrayList<>(List.of(blackjackService.playerDrawCard(id)));
-        List<Card> dcards = new ArrayList<>(List.of(blackjackService.dealerDrawCard(id)));
-        pcards.add(blackjackService.playerDrawCard(id));
-        dcards.add(blackjackService.dealerDrawCard(id));
+        switch (state.getPaction()) {
+            case "start":
 
-        m.addAttribute("pcards", pcards);
-        m.addAttribute("dcards", List.of(dcards.getFirst(), new Card("0", "0", 0)));
-        m.addAttribute("state", state);
-        m.addAttribute("betAmount", state.getBet());
+                var game = blackjackService.begin(state.getBet());
+                var playerId = game.getPlayerId();
+                var player = (AppUser) appUserDetailsService.loadUserById(playerId);
 
-        /*
-        m.addAttribute("ddouble", state.getBet()*2 > user.getBalance());
-        */
+                m.addAttribute("state", state);
+                m.addAttribute("pcards", game.getPlayerHand());
+                m.addAttribute("dcards", List.of(game.getDealerHand().getFirst(), new Card("0", "0", 0)));
 
-        /* TEMP */
-        m.addAttribute("ddouble", true);
-        m.addAttribute("hit", true);
-        m.addAttribute("stand", true);
+                m.addAttribute("ddouble", (state.getBet()*2 < player.getBalance()) && game.canDouble());
+                m.addAttribute("hit", true);
+                m.addAttribute("stand", true);
 
-        return "games/blackjack";
+                return "games/blackjack";
+
+            case "double":
+                game = blackjackService.getGameById(state.getGameId());
+                game.setCantDouble();
+
+            case "hit":
+
+            default: // stand
+
+                return "games/blackjack";
+        }
     }
 }
