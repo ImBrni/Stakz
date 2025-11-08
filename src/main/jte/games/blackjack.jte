@@ -1,53 +1,35 @@
 @param casino.model.AppUser currentUser
-
-<%-- Table --%>
-@param java.util.List<casino.games.Card> pcards
-@param java.util.List<casino.games.Card> dcards
-
-@param casino.games.blackjack.BlackjackState state
+@param casino.games.blackjack.Blackjack blackjack
 
 <%-- Controls --%>
 @param String endpoint = "blackjack/tick"
-@param boolean ddouble = false
-@param boolean hit = false
-@param boolean stand = false
-@param boolean bet = false
-@param boolean start = false
+@param boolean filler = false
 
+@if(filler)
 <html lang="en">
 @template.modules.head()
 <script src="/assets/fixi.js"></script>
 <script src="/assets/elements.cardmeister.full.js"></script>
 <body>
 @template.modules.header(currentUser = currentUser)
-
+@endif
 
 <main id="game" class="flex flex-col gap-4 justify-center items-center h-screen w-screen margin-6">
     <div id="table" class="p-4 mb-10 bg-green-900 w-1/2 sm:w-1/3 rounded-xl">
 
         <div class="dealer flex justify-center items-center flex-row-reverse mb-[50px]">
 
-            @for(var card : dcards)
+            @for(var card : blackjack.getDealerHand())
                 <playing-card class="w-[15em] sm:w-[10em]" rank="${card.getRank()}" suit="${card.getSuit()}"></playing-card>
-                <!--
-                <playing-card class="w-[15em] sm:w-[10em]" rank="0" suit="0"></playing-card>
-                -->
             @endfor
 
         </div>
 
         <div class="player flex justify-center items-center">
 
-            @for(var card : pcards)
+            @for(var card : blackjack.getPlayerHand())
                 <playing-card class="w-[15em] sm:w-[10em]" rank="${card.getRank()}" suit="${card.getSuit()}"></playing-card>
-                <!--
-                <playing-card class="w-[15em] sm:w-[10em]" rank="0" suit="0"></playing-card>
-                -->
             @endfor
-            <!--
-            <playing-card class="w-[15em] sm:w-[10em]" rank="Ace" suit="Hearts"></playing-card>
-            <playing-card class="w-[15em] sm:w-[10em]" rank="Queen" suit="Hearts"></playing-card>
-            -->
 
         </div>
 
@@ -65,12 +47,12 @@
 
         </script>
 
-        <input name="gameId" value="${state.getGameId()}" class="hidden" />
+        <input name="Id" value="${blackjack.getId()}" class="hidden" />
 
         <div>
             <label for="bet" class="sr-only"> Quantity </label>
             <div class="flex items-center rounded-sm border border-gray-200 dark:border-gray-800">
-                @if(bet)
+                @if(blackjack.canBet())
                     <button type="button" onclick="addBet(this)" value="-100" class="mx-4 leading-10 text-gray-600 transition hover:opacity-75 dark:text-gray-300">
                         − 100
                     </button>
@@ -82,9 +64,9 @@
                     </button>
                 @endif
 
-                <input type="number" id="bet" name="bet" disabled="${!bet}" min="1" value="${state.getBet()}"  class="h-10 w-16 border-transparent text-center [-moz-appearance:textfield] sm:text-sm dark:bg-gray-900 dark:text-white [&amp;::-webkit-inner-spin-button]:m-0 [&amp;::-webkit-inner-spin-button]:appearance-none [&amp;::-webkit-outer-spin-button]:m-0 [&amp;::-webkit-outer-spin-button]:appearance-none">
+                <input type="number" id="bet" name="bet" disabled="${!blackjack.canBet()}" min="1" value="${blackjack.getBet()}"  class="h-10 w-16 border-transparent text-center [-moz-appearance:textfield] sm:text-sm dark:bg-gray-900 dark:text-white [&amp;::-webkit-inner-spin-button]:m-0 [&amp;::-webkit-inner-spin-button]:appearance-none [&amp;::-webkit-outer-spin-button]:m-0 [&amp;::-webkit-outer-spin-button]:appearance-none">
 
-                @if(bet)
+                @if(blackjack.canBet())
                     <button type="button" onclick="addBet(this)" value="+1" class="mx-4 leading-10 text-gray-600 transition hover:opacity-75 dark:text-gray-300">
                         + 1
                     </button>
@@ -98,23 +80,21 @@
             </div>
         </div>
 
-        @if(start)
+        @if(blackjack.canStart() || blackjack.isEnded())
             @template.modules.button(label = "Start", type = "submit", name = "paction", value = "start")
         @else
-            @if(ddouble)
+            @if(blackjack.canDouble())
                 @template.modules.button(label = "Double", type = "submit", name = "paction", value = "double")
             @endif
-            @if(hit)
-                @template.modules.button(label = "Hit", type = "submit", name = "paction", value = "hit")
-            @endif
-            @if(stand)
-                @template.modules.button(label = "Stand", type = "submit", name = "paction", value = "stand")
-            @endif
+            @template.modules.button(label = "Hit", type = "submit", name = "paction", value = "hit")
+            @template.modules.button(label = "Stand", type = "submit", name = "paction", value = "stand")
         @endif
     </form>
 </main>
 
+@if(filler)
 @template.modules.footer(currentUser = currentUser, enabled = true)
 
 </body>
 </html>
+@endif

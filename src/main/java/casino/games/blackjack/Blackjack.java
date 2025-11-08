@@ -28,45 +28,61 @@ public class Blackjack extends Games {
     }
 
     private static final List<Card> FULL_DECK = createFullDeck();
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<Card> deck = new ArrayList<>(FULL_DECK);
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<Card> playerHand = new ArrayList<>();
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<Card> dealerHand = new ArrayList<>();
 
     private Long bet;
-
+    private String paction;
+    private boolean ended;
+    private boolean canBet;
+    private boolean canStart;
     private boolean canDouble;
+
+    public Blackjack() {}
 
     public Blackjack(Long bet) {
         super();
         this.bet = bet;
         Collections.shuffle(deck);
 
-        playerHand.add(deck.remove(0));
-        playerHand.add(deck.remove(0));
-
-        dealerHand.add(deck.remove(0));
-        dealerHand.add(deck.remove(0));
-
-        canDouble = true;
+        canDouble = false;
+        canBet = true;
+        canStart = true;
+        ended = false;
     }
 
-    public Card getCard() { return deck.remove(0); }
+    public Card getCard() { return this.deck.remove(0); }
 
-    public void playerAddCard(Card c) { playerHand.add(c); }
-    public void dealerAddCard(Card c) { dealerHand.add(c); }
+    public void playerAddCard(Card c) { this.playerHand.add(c); }
+    public void dealerAddCard(Card c) { this.dealerHand.add(c); }
+
+    public List<Card> getPlayerHand() { return playerHand; }
+    public void setPlayerHand(List<Card> playerHand) { this.playerHand = playerHand; }
+
+    public List<Card> getDealerHand() { return dealerHand; }
+    public void setDealerHand(List<Card> dealerHand) { this.dealerHand = dealerHand; }
 
     public Long getBet() { return this.bet; }
     public void setBet(Long bet) { this.bet = bet; }
 
     public boolean canDouble() { return canDouble; }
-    public void setCantDouble() { this.canDouble = false; }
+    public void setCanDouble(boolean canDouble) { this.canDouble = canDouble; }
 
-    public List<Card> getPlayerHand() { return playerHand; }
+    public boolean canBet() { return canBet; }
+    public void setCanBet(boolean canBet) { this.canBet = canBet; }
 
-    public List<Card> getDealerHand() { return dealerHand; }
+    public boolean canStart() { return canStart; }
+    public void setCanStart(boolean canStart) { this.canStart = canStart; }
+
+    public boolean isEnded() { return ended; }
+    public void setEnded(boolean ended) { this.ended = ended; }
+
+    public String getPaction() { return paction; }
+    public void setPaction(String paction) { this.paction = paction; }
 }
 
 /*
@@ -108,28 +124,6 @@ public class Blackjack {
         } else {
             System.out.println("Dealer wins.");
         }
-    }
-
-    private int getHandValue(List<Card> hand) {
-        int total = 0;
-        int aceCount = 0;
-        for (Card card : hand) {
-            total += card.value;
-            if (card.rank.equals("Ace")) aceCount++;
-        }
-        while (total > 21 && aceCount > 0) {
-            total -= 10;
-            aceCount--;
-        }
-        return total;
-    }
-
-    private String handToString(List<Card> hand) {
-        StringBuilder sb = new StringBuilder();
-        for (Card card : hand) {
-            sb.append(card).append(", ");
-        }
-        return sb.substring(0, sb.length() - 2);
     }
 }
 */

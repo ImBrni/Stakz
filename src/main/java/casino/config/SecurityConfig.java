@@ -19,7 +19,7 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable) // TODO: Switch to JWT
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers( "/", "/signin", "/assets/**").permitAll()
+                        .requestMatchers( "/", "/signin", "/assets/**", "/secret").permitAll() // TODO: Remove secret (from here and the endpoint too), it is only for debugging games
                         .anyRequest().authenticated()
                         )
                 .formLogin(form -> form
