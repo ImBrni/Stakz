@@ -1,5 +1,5 @@
 @param casino.model.AppUser currentUser
-@param casino.games.blackjack.Blackjack blackjack
+@param casino.controller.games.blackjack.Blackjack blackjack
 
 <%-- Controls --%>
 @param String endpoint = "blackjack/tick"

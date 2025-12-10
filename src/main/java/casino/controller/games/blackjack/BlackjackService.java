@@ -1,7 +1,7 @@
-package casino.games.blackjack;
+package casino.controller.games.blackjack;
 
 import java.util.List;
-import casino.games.Card;
+import casino.controller.games.Card;
 import casino.repository.AppUserRepository;
 import casino.repository.GamesRepository;
 import org.springframework.stereotype.Service;

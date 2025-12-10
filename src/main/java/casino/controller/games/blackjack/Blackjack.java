@@ -1,6 +1,6 @@
-package casino.games.blackjack;
+package casino.controller.games.blackjack;
 
-import casino.games.Card;
+import casino.controller.games.Card;
 import casino.model.Games;
 import jakarta.persistence.*;
 

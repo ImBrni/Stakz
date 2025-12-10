@@ -1,4 +1,4 @@
-package casino.games.roulette;
+package casino.controller.games.roulette;
 
 import casino.controller.BaseController;
 import org.springframework.stereotype.Controller;

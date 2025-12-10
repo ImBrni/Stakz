@@ -11,8 +11,8 @@ import java.util.List;
 @RestController
 public class Backend {
 
+    /*
     private final GamesRepository gamesRepository;
-
     public Backend(GamesRepository gamesRepository) {
         this.gamesRepository = gamesRepository;
     }
@@ -21,4 +21,5 @@ public class Backend {
     public List<Games> secret() {
         return gamesRepository.findAll();
     }
+     */
 }

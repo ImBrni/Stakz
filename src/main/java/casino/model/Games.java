@@ -19,8 +19,6 @@ public abstract class Games {
     @CreatedBy
     private Long playerId;
 
-    private Long balanceDiff;
-
     private LocalDateTime createdAt;
 
     public Games() { }
@@ -30,9 +28,6 @@ public abstract class Games {
 
     public Long getPlayerId() { return playerId; }
     public void setPlayerId(Long playerId) { this.playerId = playerId; }
-
-    public Long getBalanceDiff() { return balanceDiff; }
-    public void setBalanceDiff(Long balanceDiff) { this.balanceDiff = balanceDiff; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
 
