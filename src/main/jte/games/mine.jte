@@ -11,7 +11,7 @@
 @endif
 
 <main id="game" class="flex flex-col gap-4 justify-center items-center h-screen w-screen margin-6">
-
+    Hello from mine!
 </main>
 
 @if(filler)

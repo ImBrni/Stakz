@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MineController extends BaseController {
 
-    @GetMapping("games/blackjack")
+    @GetMapping("games/mine")
     public String root(Model m) {
 
         m.addAttribute("filler", true);

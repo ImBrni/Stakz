@@ -10,7 +10,7 @@ public class RouletteController extends BaseController {
 
     @GetMapping("/games/roulette")
     public String roulette(Model m) {
-        return "games/roulette/root";
+        return "games/roulette";
     }
 
 }

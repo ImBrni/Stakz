@@ -23,9 +23,9 @@ public class Frontend extends BaseController {
                 ),
                 */
                 Map.ofEntries(
-                        entry("name", "Mine Predictor"),
+                        entry("name", "Mine"),
                         entry("uri", "/games/mine"),
-                        entry("banneruri", "/assets/gamebanners/blackjack.jpg")
+                        entry("banneruri", "/assets/gamebanners/mine.jpg")
                 ),
                 Map.ofEntries(
                         entry("name", "Roulette"),

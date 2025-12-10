@@ -13,6 +13,6 @@ public interface GamesRepository extends JpaRepository<Games, Long> {
     Page<Games> findByPlayerId(Long playerId, Pageable pageable);
 
     List<Games> findByPlayerIdAndCreatedAtBetween(Long playerId, LocalDateTime start, LocalDateTime end);
-    List<Games> findByPlayerIdAndBalanceDiffGreaterThan(Long playerId, Long minWinAmount);
+    //List<Games> findByPlayerIdAndBalanceDiffGreaterThan(Long playerId, Long minWinAmount);
 
 }
