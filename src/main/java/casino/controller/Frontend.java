@@ -15,13 +15,11 @@ public class Frontend extends BaseController {
     public String root(Model model) {
 
         var games = List.of(
-                /*
                 Map.ofEntries(
                         entry("name", "Blackjack"),
                         entry("uri", "/games/blackjack"),
                         entry("banneruri", "/assets/gamebanners/blackjack.jpg")
                 ),
-                */
                 Map.ofEntries(
                         entry("name", "Mine"),
                         entry("uri", "/games/mine"),
