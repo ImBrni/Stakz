@@ -21,8 +21,8 @@ public class Frontend extends BaseController {
                         entry("banneruri", "/assets/gamebanners/blackjack.jpg")
                 ),
                 Map.ofEntries(
-                        entry("name", "Mine"),
-                        entry("uri", "/games/mine"),
+                        entry("name", "Mines"),
+                        entry("uri", "/games/mines"),
                         entry("banneruri", "/assets/gamebanners/mine.jpg")
                 ),
                 Map.ofEntries(

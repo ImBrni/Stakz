@@ -6,13 +6,13 @@ import jakarta.persistence.*;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "game_type")
-public class Mine extends Games {
+public class Mines extends Games {
 
     private long bet;
 
-    public Mine() {}
+    public Mines() {}
 
-    public Mine(Long bet) {
+    public Mines(Long bet) {
         super();
         this.bet = bet;
     }

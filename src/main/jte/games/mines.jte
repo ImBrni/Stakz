@@ -1,5 +1,5 @@
 @param casino.model.AppUser currentUser
-<%--@param casino.controller.games.mine.Mine mine--%>
+<%--@param casino.controller.games.mine.Mines mine--%>
 
 @param boolean filler = false
 
