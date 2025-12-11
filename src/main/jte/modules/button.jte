@@ -4,6 +4,7 @@
 
 @param String name = ""
 @param String value = ""
+@param String onclick = ""
 
 <%--
 @param String action = null
@@ -14,7 +15,7 @@
 --%>
 
 <a class="group relative inline-block text-sm font-medium text-white focus:ring-3 focus:outline-hidden" href="${uri}" >
-    <button type="${type}" name="${name}" value="${value}" class="w-full">
+    <button type="${type}" name="${name}" value="${value}" onclick="${onclick}" class="w-full">
     <span class="absolute inset-0 border rounded-md border-blue-600"></span>
     <span class="block border border-blue-600 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-md transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1">
         ${label}
