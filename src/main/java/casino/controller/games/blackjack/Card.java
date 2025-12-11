@@ -1,4 +1,4 @@
-package casino.controller.games;
+package casino.controller.games.blackjack;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
