@@ -26,13 +26,29 @@ public class Blackjack extends Games {
         return deck;
     }
 
+    public static int countHand(List<Card> hand) {
+        int total = 0;
+        int aceCount = 0;
+        for (Card card : hand) {
+            total += card.getValue();
+            if (card.getRank().equalsIgnoreCase("ace")) aceCount++;
+        }
+        while (total > 21 && aceCount > 0) {
+            total -= 10;
+            aceCount--;
+        }
+        return total;
+    }
+
     private static final List<Card> FULL_DECK = createFullDeck();
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Card> deck = new ArrayList<>(FULL_DECK);
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Card> playerHand = new ArrayList<>();
+    //private int playerHandTotal;
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Card> dealerHand = new ArrayList<>();
+    //private int dealerHandTotal;
 
     private Long bet;
     private String paction;
@@ -56,8 +72,26 @@ public class Blackjack extends Games {
 
     public Card getCard() { return this.deck.remove(0); }
 
-    public void playerAddCard(Card c) { this.playerHand.add(c); }
-    public void dealerAddCard(Card c) { this.dealerHand.add(c); }
+    /*
+    public void playerAddCard(Card c) {
+        this.playerHand.add(c);
+        this.playerHandTotal = countHand(this.playerHand);
+    }
+
+    public void dealerAddCard(Card c) {
+        this.dealerHand.add(c);
+        this.dealerHandTotal = countHand(this.dealerHand);
+    }
+
+     */
+
+    public void playerAddCard(Card c) {
+        this.playerHand.add(c);
+    }
+
+    public void dealerAddCard(Card c) {
+        this.dealerHand.add(c);
+    }
 
     public List<Card> getPlayerHand() { return playerHand; }
     public void setPlayerHand(List<Card> playerHand) { this.playerHand = playerHand; }

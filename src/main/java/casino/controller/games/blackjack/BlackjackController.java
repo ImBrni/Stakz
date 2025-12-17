@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-public class BlackjackController extends BaseController {
+public class BlackjackController {
 
     @Autowired
     private BlackjackService blackjackService;

@@ -2,19 +2,23 @@ package casino.controller.games.blackjack;
 
 import java.util.List;
 
+import casino.controller.BaseController;
 import casino.repository.AppUserRepository;
 import casino.repository.GamesRepository;
+import casino.service.BalanceService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BlackjackService {
+public class BlackjackService extends BaseController {
 
     private final AppUserRepository appUserRepository;
     private final GamesRepository gamesRepository;
+    private final BalanceService balanceService;
 
     private static final Card FlippedCard = new Card("0", "0", 0);
 
-    public BlackjackService(AppUserRepository appUserRepository, GamesRepository gamesRepository) {
+    public BlackjackService(BalanceService balanceService, AppUserRepository appUserRepository, GamesRepository gamesRepository) {
+        this.balanceService = balanceService;
         this.appUserRepository = appUserRepository;
         this.gamesRepository = gamesRepository;
     }
@@ -56,14 +60,18 @@ public class BlackjackService {
     public Blackjack actionStand(Blackjack game) {
         var thegame = getGameById(game.getId());
 
-        while(countHand(thegame.getDealerHand()) <= 17) {
+        while(Blackjack.countHand(thegame.getDealerHand()) <= 17) {
             thegame.dealerAddCard(thegame.getCard());
         }
 
-        if(countHand(thegame.getDealerHand()) <= 21) {
-            // Check who's hand is closer to 21
+        if (Blackjack.countHand(thegame.getDealerHand()) > 21 || Blackjack.countHand(thegame.getPlayerHand()) > Blackjack.countHand(thegame.getDealerHand())) {
+            // Player win
+            balanceService.addBalance(thegame.getPlayerId(), thegame.getBet());
+        } else if (Blackjack.countHand(thegame.getPlayerHand()) > Blackjack.countHand(thegame.getDealerHand())) {
+            // Push TODO
         } else {
-            // Player won, because dealer busted
+            // Dealer win
+            balanceService.subBalance(thegame.getPlayerId(), thegame.getBet());
         }
 
         thegame.setEnded(true);
@@ -78,9 +86,15 @@ public class BlackjackService {
 
         thegame.playerAddCard(thegame.getCard());
 
-        if(countHand(thegame.getPlayerHand()) > 21) {
-            //return actionStand(gamesRepository.save(thegame));
+        if(Blackjack.countHand(thegame.getPlayerHand()) > 21) {
             // Player lost, because their hand is over 21
+            balanceService.subBalance(thegame.getPlayerId(), thegame.getBet());
+
+            thegame.setEnded(true);
+            thegame.setCanBet(true);
+            thegame.setCanStart(true);
+
+            return gamesRepository.save(thegame);
         }
 
         var sgame = gamesRepository.save(thegame);
@@ -96,26 +110,19 @@ public class BlackjackService {
             thegame.setBet(thegame.getBet() * 2);
             thegame.playerAddCard(thegame.getCard());
 
-            if(countHand(thegame.getPlayerHand()) > 21) {
+            if(Blackjack.countHand(thegame.getPlayerHand()) > 21) {
                 // Player lost because their hand is over 21
+                balanceService.subBalance(thegame.getPlayerId(), thegame.getBet());
+
+                thegame.setEnded(true);
+                thegame.setCanBet(true);
+                thegame.setCanStart(true);
+
+                return gamesRepository.save(thegame);
             }
         }
 
         return actionStand(gamesRepository.save(thegame));
-    }
-
-    private Integer countHand(List<Card> hand) {
-        int total = 0;
-        int aceCount = 0;
-        for (Card card : hand) {
-            total += card.getValue();
-            if (card.getRank().equalsIgnoreCase("ace")) aceCount++;
-        }
-        while (total > 21 && aceCount > 0) {
-            total -= 10;
-            aceCount--;
-        }
-        return total;
     }
 
     public Blackjack getGameById(Long gameId) {

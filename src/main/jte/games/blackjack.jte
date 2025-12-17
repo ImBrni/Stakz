@@ -17,9 +17,11 @@
 <main id="game" class="flex flex-col gap-4 justify-center items-center h-screen w-screen margin-6">
     <div id="table" class="p-4 mb-10 bg-green-900 w-1/2 sm:w-1/3 rounded-xl">
 
-        <div class="dealer flex justify-center items-center flex-row-reverse mb-[50px]">
+        <div class="m-5 text-xl">${casino.controller.games.blackjack.Blackjack.countHand(blackjack.getDealerHand())}</div>
 
-            @for(var card : blackjack.getDealerHand().reversed())
+        <div class="dealer flex justify-center items-center">
+
+            @for(var card : blackjack.getDealerHand())
                 <playing-card class="w-[15em] sm:w-[10em]" rank="${card.getRank()}" suit="${card.getSuit()}"></playing-card>
             @endfor
 
@@ -33,6 +35,8 @@
 
         </div>
 
+        <div class="m-5 text-xl text-end">${casino.controller.games.blackjack.Blackjack.countHand(blackjack.getPlayerHand())}</div>
+
     </div>
 
     <form id="controls" fx-method="POST" fx-target="#game" fx-action="${endpoint}" class="w-2/3 sm:w-1/3 flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -44,7 +48,6 @@
               const addValue = parseInt(button.value, 10);
               input.value = Math.max(Math.min(currentValue + addValue, ${currentUser.getBalance()}), 1);
             }
-
         </script>
 
         <input name="Id" value="${blackjack.getId()}" class="hidden" />
