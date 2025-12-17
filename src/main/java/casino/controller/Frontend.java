@@ -1,5 +1,8 @@
 package casino.controller;
 
+import casino.repository.AppUserRepository;
+import casino.service.BalanceService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +13,14 @@ import static java.util.Map.entry;
 
 @Controller
 public class Frontend {
+
+    private final AppUserRepository appUserRepository;
+    private final BalanceService balanceService;
+
+    public Frontend(AppUserRepository appUserRepository, BalanceService balanceService) {
+        this.appUserRepository = appUserRepository;
+        this.balanceService = balanceService;
+    }
 
     @GetMapping("/")
     public String root(Model model) {
@@ -45,6 +56,16 @@ public class Frontend {
     public String signin() { return "signin"; }
 
     @GetMapping("/rejuice")
-    public String rejuice() { return "redirect:/"; }
+    public String rejuice(Authentication authentication) {
+
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return null;
+        }
+        String username = authentication.getName();
+
+        balanceService.addBalance(appUserRepository.findByUsername(username).get().getId(), 10_000L);
+
+        return "redirect:/";
+    }
 
 }

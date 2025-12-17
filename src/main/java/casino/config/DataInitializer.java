@@ -13,19 +13,19 @@ public class DataInitializer {
     @Bean
     CommandLineRunner initUsers(AppUserRepository users, PasswordEncoder encoder) {
         return _ -> {
-            users.findByUsername("user").orElseGet(() -> {
+            users.findByUsername("barni").orElseGet(() -> {
                 AppUser u = new AppUser();
-                u.setUsername("user");
-                u.setPassword(encoder.encode("password"));
+                u.setUsername("barni");
+                u.setPassword(encoder.encode("barnipass"));
                 u.setBalance(10_000L);
                 return users.save(u);
             });
 
-            users.findByUsername("admin").orElseGet(() -> {
+            users.findByUsername("patrik").orElseGet(() -> {
                 AppUser a = new AppUser();
-                a.setUsername("admin");
-                a.setPassword(encoder.encode("admin"));
-                a.setBalance(1_000_000L);
+                a.setUsername("patrik");
+                a.setPassword(encoder.encode("patrikpass"));
+                a.setBalance(10_000L);
                 return users.save(a);
             });
         };

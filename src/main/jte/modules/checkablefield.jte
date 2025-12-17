@@ -6,6 +6,7 @@
     <label class="tgl-btn" data-tg-off="${number}" data-tg-on="${number}" for="${number}"></label>
 </div>
 
+<%--
 <style>
     .checkbox-wrapper-10 .tgl {
       display: none;
@@ -92,3 +93,4 @@
       background: gray;
     }
 </style>
+--%>

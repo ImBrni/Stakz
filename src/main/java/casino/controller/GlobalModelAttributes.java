@@ -24,9 +24,9 @@ public class GlobalModelAttributes {
         if (authentication == null || !authentication.isAuthenticated()) {
             return null;
         }
-        // Handles cases where principal isn't AppUser
+
         String username = authentication.getName();
-        // In case of anonymous authentication
+
         if ("anonymousUser".equals(username)) return null;
 
         return userRepository.findByUsername(username).orElse(null);

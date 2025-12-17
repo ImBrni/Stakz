@@ -17,7 +17,7 @@ public class Backend {
     }
 
     @GetMapping("/games")
-    public List<Games> secret() {
+    public List<Games> games() {
         return gamesRepository.findAll();
     }
 }

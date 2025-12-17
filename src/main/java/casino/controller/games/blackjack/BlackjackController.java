@@ -25,7 +25,6 @@ public class BlackjackController {
 
         switch (blackjack.getPaction()) {
             case "start":
-                //m.addAttribute("filler", true);
                 m.addAttribute("blackjack", blackjackService.startGame(blackjack));
                 return "games/blackjack";
 

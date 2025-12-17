@@ -72,26 +72,9 @@ public class Blackjack extends Games {
 
     public Card getCard() { return this.deck.remove(0); }
 
-    /*
-    public void playerAddCard(Card c) {
-        this.playerHand.add(c);
-        this.playerHandTotal = countHand(this.playerHand);
-    }
+    public void playerAddCard(Card c) { this.playerHand.add(c); }
 
-    public void dealerAddCard(Card c) {
-        this.dealerHand.add(c);
-        this.dealerHandTotal = countHand(this.dealerHand);
-    }
-
-     */
-
-    public void playerAddCard(Card c) {
-        this.playerHand.add(c);
-    }
-
-    public void dealerAddCard(Card c) {
-        this.dealerHand.add(c);
-    }
+    public void dealerAddCard(Card c) { this.dealerHand.add(c); }
 
     public List<Card> getPlayerHand() { return playerHand; }
     public void setPlayerHand(List<Card> playerHand) { this.playerHand = playerHand; }
@@ -117,46 +100,3 @@ public class Blackjack extends Games {
     public String getPaction() { return paction; }
     public void setPaction(String paction) { this.paction = paction; }
 }
-
-/*
-public class Blackjack {
-
-
-        System.out.println("Your hand: " + handToString(playerHand) + " (Total: " + getHandValue(playerHand) + ")");
-        System.out.println("Dealer shows: " + dealerHand.get(0));
-
-        while (getHandValue(playerHand) < 21) {
-            System.out.print("Hit or Stand? ");
-            String action = scanner.nextLine().toLowerCase();
-            if (action.equals("hit")) {
-                playerHand.add(dealCard());
-                System.out.println("Your hand: " + handToString(playerHand) + " (Total: " + getHandValue(playerHand) + ")");
-            } else {
-                break;
-            }
-        }
-
-        if (getHandValue(playerHand) > 21) {
-            System.out.println("You bust! Dealer wins.");
-            return;
-        }
-
-        System.out.println("Dealer's hand: " + handToString(dealerHand) + " (Total: " + getHandValue(dealerHand) + ")");
-        while (getHandValue(dealerHand) < 17) {
-            dealerHand.add(dealCard());
-            System.out.println("Dealer hits: " + handToString(dealerHand) + " (Total: " + getHandValue(dealerHand) + ")");
-        }
-
-        int playerTotal = getHandValue(playerHand);
-        int dealerTotal = getHandValue(dealerHand);
-
-        if (dealerTotal > 21 || playerTotal > dealerTotal) {
-            System.out.println("You win!");
-        } else if (playerTotal == dealerTotal) {
-            System.out.println("Push!");
-        } else {
-            System.out.println("Dealer wins.");
-        }
-    }
-}
-*/

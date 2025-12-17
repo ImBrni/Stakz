@@ -13,6 +13,8 @@ public class RouletteController {
     }
 
 }
+
+// Patrik roulette logika V1
 /*package casino.games;
 
 import java.util.Random;
