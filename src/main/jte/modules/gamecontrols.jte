@@ -1,6 +1,7 @@
 @param casino.model.AppUser currentUser
 
 @param boolean canBet = true
+@param String playbuttoncustomclass = ""
 
 
 <div id="controls" class="w-2/3 sm:w-1/3 flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -45,5 +46,5 @@
         </div>
     </div>
 
-    @template.modules.button(label = "Play", onclick = "play()")
+    @template.modules.button(label = "Play", customclass = playbuttoncustomclass)
 </div>

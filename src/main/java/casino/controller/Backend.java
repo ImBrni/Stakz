@@ -11,15 +11,13 @@ import java.util.List;
 @RestController
 public class Backend {
 
-    /*
     private final GamesRepository gamesRepository;
     public Backend(GamesRepository gamesRepository) {
         this.gamesRepository = gamesRepository;
     }
 
-    @GetMapping("/secret")
+    @GetMapping("/games")
     public List<Games> secret() {
         return gamesRepository.findAll();
     }
-     */
 }

@@ -19,7 +19,7 @@
 
         <div class="dealer flex justify-center items-center flex-row-reverse mb-[50px]">
 
-            @for(var card : blackjack.getDealerHand())
+            @for(var card : blackjack.getDealerHand().reversed())
                 <playing-card class="w-[15em] sm:w-[10em]" rank="${card.getRank()}" suit="${card.getSuit()}"></playing-card>
             @endfor
 

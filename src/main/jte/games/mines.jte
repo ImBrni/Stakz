@@ -15,7 +15,7 @@
     <script>
 
         let play = () => {
-            console.log("Hello world!");
+            console.log("Hello");
         }
 
     </script>

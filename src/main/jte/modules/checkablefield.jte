@@ -2,7 +2,7 @@
 @param String name
 
 <div class="checkbox-wrapper-10">
-    <input class="tgl tgl-flip" id="${number}" name="${name}" type="checkbox" checked />
+    <input class="tgl tgl-flip" name="${name}" type="checkbox" checked />
     <label class="tgl-btn" data-tg-off="${number}" data-tg-on="${number}" for="${number}"></label>
 </div>
 

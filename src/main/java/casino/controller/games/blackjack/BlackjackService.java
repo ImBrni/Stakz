@@ -48,14 +48,22 @@ public class BlackjackService {
 
         thegame.setCanDouble(player.getBalance() >= thegame.getBet() * 2 );
 
-        return gamesRepository.save(thegame);
+        var sgame = gamesRepository.save(thegame);
+        sgame.setDealerHand(List.of(FlippedCard, sgame.getDealerHand().getFirst()));
+        return sgame;
     }
 
     public Blackjack actionStand(Blackjack game) {
         var thegame = getGameById(game.getId());
 
-        for(int i = 0; i < 3; i++) {
+        while(countHand(thegame.getDealerHand()) <= 17) {
             thegame.dealerAddCard(thegame.getCard());
+        }
+
+        if(countHand(thegame.getDealerHand()) <= 21) {
+            // Check who's hand is closer to 21
+        } else {
+            // Player won, because dealer busted
         }
 
         thegame.setEnded(true);
@@ -71,10 +79,13 @@ public class BlackjackService {
         thegame.playerAddCard(thegame.getCard());
 
         if(countHand(thegame.getPlayerHand()) > 21) {
-            return actionStand(gamesRepository.save(thegame));
+            //return actionStand(gamesRepository.save(thegame));
+            // Player lost, because their hand is over 21
         }
 
-        return gamesRepository.save(thegame);
+        var sgame = gamesRepository.save(thegame);
+        sgame.setDealerHand(List.of(FlippedCard, sgame.getDealerHand().getFirst()));
+        return sgame;
     }
 
     public Blackjack actionDouble(Blackjack game) {
@@ -84,17 +95,21 @@ public class BlackjackService {
             thegame.setCanDouble(false);
             thegame.setBet(thegame.getBet() * 2);
             thegame.playerAddCard(thegame.getCard());
+
+            if(countHand(thegame.getPlayerHand()) > 21) {
+                // Player lost because their hand is over 21
+            }
         }
 
         return actionStand(gamesRepository.save(thegame));
     }
 
-    private int countHand(List<Card> hand) {
+    private Integer countHand(List<Card> hand) {
         int total = 0;
         int aceCount = 0;
         for (Card card : hand) {
             total += card.getValue();
-            if (card.getRank().toLowerCase().equals("ace")) aceCount++;
+            if (card.getRank().equalsIgnoreCase("ace")) aceCount++;
         }
         while (total > 21 && aceCount > 0) {
             total -= 10;

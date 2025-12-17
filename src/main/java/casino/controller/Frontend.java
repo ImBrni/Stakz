@@ -44,4 +44,7 @@ public class Frontend extends BaseController {
     @GetMapping("/signin")
     public String signin() { return "signin"; }
 
+    @GetMapping("/rejuice")
+    public String rejuice() { return "redirect:/"; }
+
 }
