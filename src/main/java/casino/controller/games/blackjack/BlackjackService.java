@@ -2,14 +2,13 @@ package casino.controller.games.blackjack;
 
 import java.util.List;
 
-import casino.controller.BaseController;
 import casino.repository.AppUserRepository;
 import casino.repository.GamesRepository;
 import casino.service.BalanceService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BlackjackService extends BaseController {
+public class BlackjackService {
 
     private final AppUserRepository appUserRepository;
     private final GamesRepository gamesRepository;

@@ -1,12 +1,9 @@
 package casino.controller.games.blackjack;
 
-import casino.controller.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 public class BlackjackController {
@@ -28,6 +25,7 @@ public class BlackjackController {
 
         switch (blackjack.getPaction()) {
             case "start":
+                //m.addAttribute("filler", true);
                 m.addAttribute("blackjack", blackjackService.startGame(blackjack));
                 return "games/blackjack";
 

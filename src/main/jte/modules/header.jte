@@ -16,7 +16,7 @@
             </div>
         @else
             <div class="hidden sm:block px-4 py-2 font-bold border cursor-pointer rounded-md hover:bg-gray-700 flex justify-center content-center ">
-                ${currentUser.getBalanceFmt()} $
+                <div id="balance" class="contents">${currentUser.getBalanceFmt()}</div> $
             </div>
 
             <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation"

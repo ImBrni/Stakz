@@ -15,6 +15,9 @@
 @endif
 
 <main id="game" class="flex flex-col gap-4 justify-center items-center h-screen w-screen margin-6">
+
+    <div id="newbalance" class="hidden">${currentUser.getBalanceFmt()}</div>
+
     <div id="table" class="p-4 mb-10 bg-green-900 w-1/2 sm:w-1/3 rounded-xl">
 
         <div class="m-5 text-xl">${casino.controller.games.blackjack.Blackjack.countHand(blackjack.getDealerHand())}</div>

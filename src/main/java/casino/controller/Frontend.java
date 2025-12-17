@@ -9,7 +9,7 @@ import java.util.*;
 import static java.util.Map.entry;
 
 @Controller
-public class Frontend extends BaseController {
+public class Frontend {
 
     @GetMapping("/")
     public String root(Model model) {
