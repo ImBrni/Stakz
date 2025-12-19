@@ -24,7 +24,7 @@
 
         <div class="grid grid-cols-6 gap-4">
         @for(int i = 0; i < (6*6); ++i)
-            @template.modules.checkablefield(number = i, name = "grid")
+            @template.modules.checkablefield(number = i, additional = "good")
         @endfor
         </div>
 
@@ -34,6 +34,8 @@
 
 @if(filler)
 @template.modules.footer(currentUser = currentUser, enabled = true)
+
+<div class="bottom-5 absolute text-zinc-700">Made By Borsi Barnabás</div>
 
 </body>
 </html>

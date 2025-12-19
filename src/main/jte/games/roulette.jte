@@ -13,5 +13,7 @@
 
 @template.modules.footer(currentUser = currentUser, enabled = true)
 
+<div class="bottom-5 absolute text-zinc-700">Made By Dankó Patrik</div>
+
 </body>
 </html>

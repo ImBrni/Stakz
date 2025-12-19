@@ -9,10 +9,10 @@ Or alternatively you can you maven from a command line like this: `./mvnw spring
 ## User accounts
 Currently, there are 2 default accounts
 
-Username: `user`
-Password: `password`
+Username: `barni`
+Password: `barnipass`
 Balance: `10 000`
 
-Username: `admin`
-Password: `admin`
-Balance: `10 000 000`
+Username: `patrik`
+Password: `patrikpass`
+Balance: `10 000`
